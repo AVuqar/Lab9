@@ -1,0 +1,21 @@
+import numpy as np
+def g(x):
+    return 1 / np.arctan(x)
+def sade_iterasiya(f, x0, tol=1e-6, max_iter=1000):
+    x = x0
+    iterasiya = 0
+    
+    while iterasiya < max_iter:
+        x_new = f(x)
+        iterasiya += 1
+        if abs(x_new - x) < tol:
+            return x_new
+        x = x_new
+    
+    print("Maksimum iterasiya sayı keçildi!")
+    return None
+x0 = 1.0
+kök = sade_iterasiya(g, x0)
+
+if kök is not None:
+    print(f"Tənliyin kökü: x = {kök}")
